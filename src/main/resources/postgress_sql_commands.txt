@@ -1,0 +1,24 @@
+
+CREATE TABLE:
+1) CREATE TABLE category(ID SERIAL PRIMARY KEY,Name varchar(50) NOT NULL)
+2) CREATE TABLE questions(ID SERIAL PRIMARY KEY,question varchar(100),categoryid int,questiontype varchar(100),options varchar(200),CONSTRAINT fk_category FOREIGN key(categoryid) REFERENCES category(ID))
+3) CREATE TABLE answers(ID SERIAL PRIMARY KEY,questionid int ,answer varchar(100),username varchar(100),CONSTRAINT fk_answerid FOREIGN key(questionid) REFERENCES questions(ID))
+
+INSERT TABLE:
+INSERT INTO category(Name) VALUES(“hard_fact”)
+INSERT INTO category(Name) VALUES(“lifestyle”)
+INSERT INTO category(Name) VALUES(“introversion”)
+INSERT INTO category(Name) VALUES(“passion”)
+
+INSERT INTO questions(question,categoryid,questiontype,options)VALUES('What is your gender?',1,'single_choice','male, female, other')
+
+INSERT INTO questions(question,categoryid,questiontype,options)VALUES('How important is the gender of your partner?',1,'single_choice','not important, important, very important')
+
+INSERT INTO questions(question,categoryid,questiontype,options)VALUES('How important is the age of your partner to you?',1,'single_choice','not important, important, very important')
+
+INSERT INTO questions(question,categoryid,questiontype,options)VALUES('Do any children under the age of 18 live with you?',1,'single_choice’,’yes, sometimes, no’)
+
+INSERT INTO questions(question,categoryid,questiontype,options)VALUES('How should your potential partner respond to this question?',1,'single_choice','yes, sometimes, no')
+
+INSERT INTO questions(question,categoryid,questiontype,options)VALUES('Could you imagine having children with your potential partner?’,1,’single_choice','yes, maybe, no')
+
